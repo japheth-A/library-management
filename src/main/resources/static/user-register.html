@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account - LibraryMS</title>
+
+    <link rel="stylesheet" href="css/user.css">
+
+</head>
+
+<body>
+
+<div class="auth-page">
+
+    <div class="auth-card">
+
+        <div class="auth-logo">
+            📚
+        </div>
+
+        <h1>
+            Create Account
+        </h1>
+
+        <p class="auth-subtitle">
+            Register for the library
+        </p>
+
+
+        <form id="registerForm">
+
+
+            <label for="name">
+                Full Name
+            </label>
+
+            <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your full name"
+                    required
+            >
+
+
+            <label for="email">
+                Email
+            </label>
+
+            <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+            >
+
+
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a password"
+                    required
+            >
+
+
+            <button type="submit">
+                Create Account
+            </button>
+
+
+        </form>
+
+
+        <p id="message"></p>
+
+
+        <div class="auth-link">
+
+            Already have an account?
+
+            <a href="user-login.html">
+                Login
+            </a>
+
+        </div>
+
+
+        <a href="index.html"
+           class="back-home">
+
+            ← Back to Home
+
+        </a>
+
+
+    </div>
+
+</div>
+
+
+<script src="js/user-register.js"></script>
+
+</body>
+
+</html>

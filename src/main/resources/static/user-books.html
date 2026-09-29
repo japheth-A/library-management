@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0">
+
+    <title>Library Books</title>
+
+
+    <link
+            rel="stylesheet"
+            href="css/user.css">
+
+</head>
+
+<body>
+
+<div class="user-layout">
+
+    <aside class="user-sidebar">
+
+        <div class="user-logo">
+            📚 Library
+        </div>
+
+        <nav>
+
+            <a href="user-dashboard.html">
+                🏠 Dashboard
+            </a>
+
+            <a
+                    href="user-books.html"
+                    class="active">
+
+                📚 Books
+
+            </a>
+
+            <a href="user-borrowings.html">
+                🔄 My Borrowings
+            </a>
+
+            <a href="user-profile.html">
+                👤 Profile
+            </a>
+
+            <a
+                    href="#"
+                    onclick="logout()">
+
+                🚪 Logout
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <main class="user-main">
+
+        <header class="user-header">
+
+            <div>
+
+                <h1>Library Books</h1>
+
+                <p>
+                    Find a book to borrow
+                </p>
+
+            </div>
+
+        </header>
+
+        <div class="search-box">
+
+            <input
+                    type="text"
+                    id="search"
+                    placeholder="Search by title..."
+                    oninput="searchBooks()">
+
+        </div>
+
+        <div
+                class="book-grid"
+                id="booksContainer">
+        </div>
+
+    </main>
+
+</div>
+
+<div
+        class="user-modal"
+        id="borrowModal">
+
+    <div class="user-modal-content">
+
+        <span
+                class="close"
+                onclick="closeModal()">
+
+            &times;
+
+        </span>
+
+        <h2>Borrow Book</h2>
+
+        <p id="selectedBook"></p>
+
+        <label>
+            Select due date
+        </label>
+
+        <input
+                type="date"
+                id="dueDate">
+
+        <button
+                class="user-button"
+                onclick="borrowBook()">
+
+            Confirm Borrow
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="js/user-books.js"></script>
+
+</body>
+
+</html>

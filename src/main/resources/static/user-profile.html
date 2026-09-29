@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile</title>
+
+
+    <link
+            rel="stylesheet"
+            href="css/user.css">
+
+</head>
+
+<body>
+
+<div class="user-layout">
+
+    <aside class="user-sidebar">
+
+        <div class="user-logo">
+            📚 Library
+        </div>
+
+        <nav>
+
+            <a href="user-dashboard.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="user-books.html">
+                📚 Books
+            </a>
+
+            <a href="user-borrowings.html">
+                🔄 My Borrowings
+            </a>
+
+            <a
+                    href="user-profile.html"
+                    class="active">
+
+                👤 Profile
+
+            </a>
+
+            <a
+                    href="#"
+                    onclick="logout()">
+
+                🚪 Logout
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <main class="user-main">
+
+        <header class="user-header">
+
+            <div>
+
+                <h1>My Profile</h1>
+
+                <p>
+                    Manage your account
+                </p>
+
+            </div>
+
+        </header>
+
+        <div class="profile-card">
+
+            <div class="profile-avatar">
+                👤
+            </div>
+
+            <form id="profileForm">
+
+                <label>
+                    Full Name
+                </label>
+
+                <input
+                        id="name"
+                        required>
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                        id="email"
+                        disabled>
+
+                <label>
+                    Phone
+                </label>
+
+                <input id="phone">
+
+                <label>
+                    Address
+                </label>
+
+                <input id="address">
+
+                <button
+                        type="submit"
+                        class="user-button">
+
+                    Save Changes
+
+                </button>
+
+            </form>
+
+            <p id="message"></p>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/user-profile.js"></script>
+
+</body>
+
+</html>

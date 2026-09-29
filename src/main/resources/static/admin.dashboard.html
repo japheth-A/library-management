@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - Library Management</title>
+
+    <!-- IMPORTANT -->
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+
+<body>
+
+<header class="dashboard-navbar">
+
+    <div class="logo">
+        📚 LibraryMS
+    </div>
+
+    <div class="admin-info">
+
+        <span id="adminEmail">
+            Admin
+        </span>
+
+        <button id="logoutBtn" class="logout-btn">
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="dashboard-container">
+
+    <div class="welcome">
+
+        <h1>
+            Admin Dashboard
+        </h1>
+
+        <p>
+            Welcome, <span id="welcomeEmail">Admin</span>
+        </p>
+
+    </div>
+
+
+    <div id="message" class="message"></div>
+
+
+    <!-- QUICK ACCESS -->
+
+    <div class="quick-access">
+
+        <button
+                class="access-card"
+                onclick="showSection('booksSection')">
+
+            <span class="access-icon">
+                📚
+            </span>
+
+            <strong>
+                Books
+            </strong>
+
+            <small>
+                Manage library books
+            </small>
+
+        </button>
+
+
+        <button
+                class="access-card"
+                onclick="showSection('membersSection')">
+
+            <span class="access-icon">
+                👥
+            </span>
+
+            <strong>
+                Members
+            </strong>
+
+            <small>
+                Manage members
+            </small>
+
+        </button>
+
+
+        <button
+                class="access-card"
+                onclick="showSection('usersSection')">
+
+            <span class="access-icon">
+                👤
+            </span>
+
+            <strong>
+                Registered Users
+            </strong>
+
+            <small>
+                Manage user accounts
+            </small>
+
+        </button>
+
+
+        <button
+                class="access-card"
+                onclick="showSection('borrowingsSection')">
+
+            <span class="access-icon">
+                📖
+            </span>
+
+            <strong>
+                Borrowing Records
+            </strong>
+
+            <small>
+                Track borrowed books
+            </small>
+
+        </button>
+
+    </div>
+
+
+    <!-- BOOKS -->
+
+    <section
+            id="booksSection"
+            class="dashboard-section">
+
+        <div class="section-header">
+
+            <h2>
+                📚 Books
+            </h2>
+
+            <button
+                    class="add-btn"
+                    onclick="openBookModal()">
+
+                + Add Book
+
+            </button>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Available</th>
+                    <th>Actions</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="booksTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- MEMBERS -->
+
+    <section
+            id="membersSection"
+            class="dashboard-section">
+
+        <div class="section-header">
+
+            <h2>
+                👥 Members
+            </h2>
+
+            <button
+                    class="add-btn"
+                    onclick="openMemberModal()">
+
+                + Add Member
+
+            </button>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="membersTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- USERS -->
+
+    <section
+            id="usersSection"
+            class="dashboard-section">
+
+        <div class="section-header">
+
+            <h2>
+                👤 Registered Users
+            </h2>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="usersTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- BORROWINGS -->
+
+    <section
+            id="borrowingsSection"
+            class="dashboard-section">
+
+        <div class="section-header">
+
+            <h2>
+                📖 Borrowing Records
+            </h2>
+
+            <button
+                    class="add-btn"
+                    onclick="updateOverdue()">
+
+                Check Overdue
+
+            </button>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Book</th>
+                    <th>User</th>
+                    <th>Member</th>
+                    <th>Borrow Date</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="borrowingsTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- BOOK MODAL -->
+
+<div
+        id="bookModal"
+        class="modal">
+
+    <div class="modal-content">
+
+        <h2 id="bookModalTitle">
+            Add Book
+        </h2>
+
+        <form id="bookForm">
+
+            <input
+                    type="hidden"
+                    id="bookId">
+
+
+            <label>
+                Title
+            </label>
+
+            <input
+                    type="text"
+                    id="bookTitle"
+                    required>
+
+
+            <label>
+                Author
+            </label>
+
+            <input
+                    type="text"
+                    id="bookAuthor"
+                    required>
+
+
+            <label>
+                ISBN
+            </label>
+
+            <input
+                    type="text"
+                    id="bookIsbn">
+
+
+            <label>
+                Category
+            </label>
+
+            <input
+                    type="text"
+                    id="bookCategory">
+
+
+            <label>
+                Quantity
+            </label>
+
+            <input
+                    type="number"
+                    id="bookQuantity"
+                    min="0"
+                    required>
+
+
+            <label>
+                Available Quantity
+            </label>
+
+            <input
+                    type="number"
+                    id="bookAvailable"
+                    min="0"
+                    required>
+
+
+            <div class="modal-buttons">
+
+                <button type="submit">
+                    Save Book
+                </button>
+
+                <button
+                        type="button"
+                        class="cancel-btn"
+                        onclick="closeBookModal()">
+
+                    Cancel
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- MEMBER MODAL -->
+
+<div
+        id="memberModal"
+        class="modal">
+
+    <div class="modal-content">
+
+        <h2 id="memberModalTitle">
+            Add Member
+        </h2>
+
+        <form id="memberForm">
+
+            <input
+                    type="hidden"
+                    id="memberId">
+
+
+            <label>
+                Name
+            </label>
+
+            <input
+                    type="text"
+                    id="memberName"
+                    required>
+
+
+            <label>
+                Email
+            </label>
+
+            <input
+                    type="email"
+                    id="memberEmail"
+                    required>
+
+
+            <label>
+                Phone
+            </label>
+
+            <input
+                    type="text"
+                    id="memberPhone">
+
+
+            <div class="modal-buttons">
+
+                <button type="submit">
+                    Save Member
+                </button>
+
+                <button
+                        type="button"
+                        class="cancel-btn"
+                        onclick="closeMemberModal()">
+
+                    Cancel
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="./js/admin-dashboard.js"></script>
+
+</body>
+
+</html>

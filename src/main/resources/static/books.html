@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0">
+
+    <title>Books</title>
+
+
+
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            📚 Library
+        </div>
+
+        <nav>
+
+            <a href="admin.dashboard.html">
+                🏠 Dashboard
+            </a>
+
+            <a
+                    href="books.html"
+                    class="active">
+
+                📚 Books
+
+            </a>
+
+            <a href="members.html">
+                👥 Members
+            </a>
+
+            <a href="borrowings.html">
+                🔄 Borrowings
+            </a>
+
+            <a href="#" onclick="logout()">
+                🚪 Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Books</h1>
+
+                <p>
+                    Manage library books
+                </p>
+
+            </div>
+
+            <button
+                    class="btn primary"
+                    onclick="openBookModal()">
+
+                + Add Book
+
+            </button>
+
+        </header>
+
+        <div class="toolbar">
+
+            <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search books..."
+                    oninput="searchBooks()">
+
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN</th>
+                    <th>Category</th>
+                    <th>Total</th>
+                    <th>Available</th>
+                    <th>Actions</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="booksTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+<div class="modal" id="bookModal">
+
+    <div class="modal-content">
+
+        <span
+                class="close"
+                onclick="closeBookModal()">
+
+            &times;
+
+        </span>
+
+        <h2 id="modalTitle">
+            Add Book
+        </h2>
+
+        <form id="bookForm">
+
+            <input
+                    type="hidden"
+                    id="bookId">
+
+            <div class="form-group">
+
+                <label>Title</label>
+
+                <input
+                        id="title"
+                        required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Author</label>
+
+                <input
+                        id="author"
+                        required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>ISBN</label>
+
+                <input id="isbn">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Category</label>
+
+                <input id="category">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Quantity</label>
+
+                <input
+                        type="number"
+                        id="quantity"
+                        min="0"
+                        required>
+
+            </div>
+
+            <button class="btn primary full">
+                Save Book
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="js/books.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>User Dashboard - LibraryMS</title>
+
+    <link rel="stylesheet" href="css/user.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="user-navbar">
+
+    <div class="user-logo">
+        📚 LibraryMS
+    </div>
+
+    <div class="user-nav-right">
+
+        <span>
+            Welcome,
+            <strong id="userName">User</strong>
+        </span>
+
+        <button id="logoutBtn">
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- MAIN -->
+
+<main class="user-container">
+
+
+    <!-- WELCOME -->
+
+    <section class="welcome-section">
+
+        <h1>
+            User Dashboard
+        </h1>
+
+        <p>
+            Manage your library account and borrowed books.
+        </p>
+
+    </section>
+
+
+    <!-- MESSAGE -->
+
+    <div id="message"
+         class="message">
+    </div>
+
+
+    <!-- QUICK ACCESS -->
+
+    <section class="quick-access">
+
+
+        <div class="user-card"
+             onclick="showSection('booksSection')">
+
+            <div class="card-icon">
+                📚
+            </div>
+
+            <h2>
+                Available Books
+            </h2>
+
+            <p>
+                Browse books available in the library.
+            </p>
+
+        </div>
+
+
+        <div class="user-card"
+             onclick="showSection('borrowingsSection')">
+
+            <div class="card-icon">
+                📖
+            </div>
+
+            <h2>
+                My Borrowed Books
+            </h2>
+
+            <p>
+                View the books you currently have.
+            </p>
+
+        </div>
+
+
+        <div class="user-card"
+             onclick="showSection('profileSection')">
+
+            <div class="card-icon">
+                👤
+            </div>
+
+            <h2>
+                My Profile
+            </h2>
+
+            <p>
+                View your account information.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- BOOKS -->
+
+    <section id="booksSection"
+             class="user-section">
+
+        <div class="section-header">
+
+            <div>
+                <h2>
+                    📚 Available Books
+                </h2>
+
+                <p>
+                    Books currently available for borrowing
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Title</th>
+
+                    <th>Author</th>
+
+                    <th>Category</th>
+
+                    <th>Available</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="booksTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- BORROWINGS -->
+
+    <section id="borrowingsSection"
+             class="user-section">
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    📖 My Borrowed Books
+                </h2>
+
+                <p>
+                    Your borrowing history
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Book</th>
+
+                    <th>Borrow Date</th>
+
+                    <th>Due Date</th>
+
+                    <th>Status</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody id="borrowingsTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROFILE -->
+
+    <section id="profileSection"
+             class="user-section">
+
+        <div class="section-header">
+
+            <div>
+
+                <h2>
+                    👤 My Profile
+                </h2>
+
+                <p>
+                    Your library account information
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-card">
+
+            <div class="profile-row">
+
+                <span>
+                    Name
+                </span>
+
+                <strong id="profileName">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="profile-row">
+
+                <span>
+                    Email
+                </span>
+
+                <strong id="profileEmail">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="profile-row">
+
+                <span>
+                    User ID
+                </span>
+
+                <strong id="profileId">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        © 2026 Library Management System
+    </p>
+
+</footer>
+
+
+<script src="js/user-dashboard.js"></script>
+
+</body>
+
+</html>

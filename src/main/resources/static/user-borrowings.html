@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0">
+
+    <title>My Borrowings</title>
+
+    <link
+            rel="stylesheet"
+            href="css/user.css">
+
+</head>
+
+<body>
+
+<div class="user-layout">
+
+    <aside class="user-sidebar">
+
+        <div class="user-logo">
+            📚 Library
+        </div>
+
+        <nav>
+
+            <a href="user-dashboard.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="user-books.html">
+                📚 Books
+            </a>
+
+            <a
+                    href="user-borrowings.html"
+                    class="active">
+
+                🔄 My Borrowings
+
+            </a>
+
+            <a href="user-profile.html">
+                👤 Profile
+            </a>
+
+            <a
+                    href="#"
+                    onclick="logout()">
+
+                🚪 Logout
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <main class="user-main">
+
+        <header class="user-header">
+
+            <div>
+
+                <h1>My Borrowings</h1>
+
+                <p>
+                    Books you have borrowed
+                </p>
+
+            </div>
+
+        </header>
+
+        <div class="user-table">
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>Book</th>
+                    <th>Author</th>
+                    <th>Borrowed</th>
+                    <th>Due Date</th>
+                    <th>Returned</th>
+                    <th>Status</th>
+                    <th>Action</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody
+                        id="borrowingsTable">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/user-borrowings.js"></script>
+
+</body>
+
+</html>
